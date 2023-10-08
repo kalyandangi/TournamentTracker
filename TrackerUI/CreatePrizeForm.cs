@@ -23,7 +23,7 @@ namespace TrackerUI
 
 
               
-                    GlobalConfig.Connection.CreatePrize(model);
+                   GlobalConfig.Connection.CreatePrize(model);
                 
 
                 
