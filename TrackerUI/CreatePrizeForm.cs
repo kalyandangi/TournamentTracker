@@ -21,8 +21,11 @@ namespace TrackerUI
                     prizeAmountValue.Text,
                     prizePercentageValue.Text);
 
+
               
                     GlobalConfig.Connection.CreatePrize(model);
+                
+
                 
                 placeNameValue.Text = "";
                 placeNumberValue.Text = "";
