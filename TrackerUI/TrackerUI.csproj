@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tracker Library\TrackerLibrary.csproj" />
     <ProjectReference Include="..\TrackerLibrary\TrackerLibrary.csproj" />
   </ItemGroup>
 

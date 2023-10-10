@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Configuration;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using TrackerLibrary.Models;
 
 
@@ -34,6 +27,9 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
             return File.ReadAllLines(file).ToList();
         }
+
+
+
         public static List<PrizeModel> ConvertToPrizeModels(this List<string> lines)
         {
             List<PrizeModel> output = new List<PrizeModel>();
@@ -50,7 +46,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
             return output;
         }
-        public static void SaveToPrizeFile(this List<PrizeModel> models, string filename)
+            public static void SaveToPrizeFile(this List<PrizeModel> models, string filename)
         {
             List<string> lines = new List<string>();
             foreach (PrizeModel p in models)
