@@ -12,9 +12,10 @@ namespace TrackerLibrary.DataAccess
     public class SqlConnector : IDataConnection
 
     {
+        private const string db = "Tournament";
         public PersonModel CreatePerson(PersonModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
@@ -44,7 +45,7 @@ namespace TrackerLibrary.DataAccess
           //      @PrizeAmount money,
           //      @PrizePercentage float,
           //      @id int = 0 output
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -59,6 +60,16 @@ namespace TrackerLibrary.DataAccess
 
                 return model;
             }
+        }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            List<PersonModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output= connection.Query<PersonModel>("dbo.spPeopele_GetAll").ToList(); 
+            }
+            return output; 
         }
     }
 }
