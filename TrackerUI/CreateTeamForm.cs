@@ -23,24 +23,31 @@ namespace TrackerUI
             //CreateSampleData();
             Wireuplists();
         }
-      
-        //private void CreateSampleData()
-        //{
-        //    avaiableTeamMembers.Add(new PersonModel {FirstName = "ABC", LastName ="XYZ"});
-        //    avaiableTeamMembers.Add(new PersonModel { FirstName = "DEF", LastName = "PQR"});
 
-        //    selectedTeamMembers.Add(new PersonModel { FirstName = "GHI", LastName = "MNO" });
-        //    selectedTeamMembers.Add(new PersonModel { FirstName ="LOP", LastName = "RST" });
 
-        //}
+
+        private void CreateSampleData()
+        {
+            availableTeamMembers.Add(new PersonModel { FirstName = "ABC", LastName = "XYZ" });
+            availableTeamMembers.Add(new PersonModel { FirstName = "DEF", LastName = "PQR" });
+
+            selectedTeamMembers.Add(new PersonModel { FirstName = "GHI", LastName = "MNO" });
+            selectedTeamMembers.Add(new PersonModel { FirstName = "LOP", LastName = "RST" });
+
+        }
 
         private void Wireuplists()
         {
+            selectTeamMemberDropDown.DataSource = null;
+
             selectTeamMemberDropDown.DataSource = availableTeamMembers;
             selectTeamMemberDropDown.DisplayMember = "FullName";
 
+            tournamentTeamMembersListBox.DataSource = null;
+
             tournamentTeamMembersListBox.DataSource = selectedTeamMembers;
             tournamentTeamMembersListBox.DisplayMember = "FullName";
+
         }
         private void createMemberButton_Click(object sender, EventArgs e)
         {
@@ -52,7 +59,10 @@ namespace TrackerUI
                 p.EmailAddress = emailAddressValue.Text;
                 p.PhoneNumber = phoneValue.Text;
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+
+                selectedTeamMembers.Add(p);
+                Wireuplists();
 
                 firstNameValue.Text = "";
                 lastNameValue.Text = "";
@@ -76,11 +86,11 @@ namespace TrackerUI
             {
                 return false;
             }
-            if(emailAddressValue.Text.Length == 0)
+            if (emailAddressValue.Text.Length == 0)
             {
                 return false;
             }
-            if(phoneValue.Text.Length == 0)
+            if (phoneValue.Text.Length == 0)
             {
                 return false;
             }
@@ -88,5 +98,32 @@ namespace TrackerUI
             return true;
         }
 
+        private void addTeamMemberButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
+            if (p != null)
+            {
+                availableTeamMembers.Remove(p);
+                selectedTeamMembers.Add(p);
+
+                Wireuplists();
+            }
+
+        }
+
+        private void deleteSelectedTeamMemberButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = tournamentTeamMembersListBox.SelectedItem as PersonModel;
+            if (p != null)
+            {
+                selectedTeamMembers.Remove(p);
+                availableTeamMembers.Add(p);
+
+                Wireuplists();
+            }
+            
+            
+
+        }
     }
 }

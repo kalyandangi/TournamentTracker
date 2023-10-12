@@ -97,7 +97,7 @@
             addTeamMemberButton.TabIndex = 17;
             addTeamMemberButton.Text = "Add Member";
             addTeamMemberButton.UseVisualStyleBackColor = true;
-            
+            addTeamMemberButton.Click += addTeamMemberButton_Click;
             // 
             // addNewMemberGroupBox
             // 
@@ -220,6 +220,7 @@
             deleteSelectedTeamMemberButton.TabIndex = 21;
             deleteSelectedTeamMemberButton.Text = "Delete Selected";
             deleteSelectedTeamMemberButton.UseVisualStyleBackColor = true;
+            deleteSelectedTeamMemberButton.Click += deleteSelectedTeamMemberButton_Click;
             // 
             // createTeamButton
             // 
