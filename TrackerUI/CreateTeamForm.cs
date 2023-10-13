@@ -121,8 +121,19 @@ namespace TrackerUI
 
                 Wireuplists();
             }
-            
-            
+
+
+
+        }
+
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = new TeamModel();  
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = selectedTeamMembers;
+
+            t = GlobalConfig.Connection.CreateTeam(t);
+            // TODO : If we arent closing this form after creation, insert the form
 
         }
     }
