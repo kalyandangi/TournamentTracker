@@ -38,11 +38,11 @@
             createPrizeButton = new Button();
             addTeamButton = new Button();
             teamPalyersLabel = new Label();
-            tournamentTeamPlayersListBox = new ListBox();
+            tournamentTeamListBox = new ListBox();
             deleteSelectedPlayersTeamButton = new Button();
             deleteSelectedPrizeButton = new Button();
             prizesListBox = new ListBox();
-            playersTeamPrizeLabel = new Label();
+            PrizesLabel = new Label();
             createTournamentButton = new Button();
             createTournamentLabel = new Label();
             SuspendLayout();
@@ -139,20 +139,20 @@
             // teamPalyersLabel
             // 
             teamPalyersLabel.AutoSize = true;
-            teamPalyersLabel.Location = new Point(431, 76);
+            teamPalyersLabel.Location = new Point(418, 76);
             teamPalyersLabel.Name = "teamPalyersLabel";
             teamPalyersLabel.Size = new Size(115, 25);
             teamPalyersLabel.TabIndex = 17;
             teamPalyersLabel.Text = "Team/Players";
             // 
-            // tournamentTeamPlayersListBox
+            // tournamentTeamListBox
             // 
-            tournamentTeamPlayersListBox.FormattingEnabled = true;
-            tournamentTeamPlayersListBox.ItemHeight = 25;
-            tournamentTeamPlayersListBox.Location = new Point(356, 104);
-            tournamentTeamPlayersListBox.Name = "tournamentTeamPlayersListBox";
-            tournamentTeamPlayersListBox.Size = new Size(256, 154);
-            tournamentTeamPlayersListBox.TabIndex = 18;
+            tournamentTeamListBox.FormattingEnabled = true;
+            tournamentTeamListBox.ItemHeight = 25;
+            tournamentTeamListBox.Location = new Point(356, 104);
+            tournamentTeamListBox.Name = "tournamentTeamListBox";
+            tournamentTeamListBox.Size = new Size(256, 154);
+            tournamentTeamListBox.TabIndex = 18;
             // 
             // deleteSelectedPlayersTeamButton
             // 
@@ -191,14 +191,14 @@
             prizesListBox.Size = new Size(256, 154);
             prizesListBox.TabIndex = 21;
             // 
-            // playersTeamPrizeLabel
+            // PrizesLabel
             // 
-            playersTeamPrizeLabel.AutoSize = true;
-            playersTeamPrizeLabel.Location = new Point(420, 273);
-            playersTeamPrizeLabel.Name = "playersTeamPrizeLabel";
-            playersTeamPrizeLabel.Size = new Size(115, 25);
-            playersTeamPrizeLabel.TabIndex = 20;
-            playersTeamPrizeLabel.Text = "Team/Players";
+            PrizesLabel.AutoSize = true;
+            PrizesLabel.Location = new Point(445, 273);
+            PrizesLabel.Name = "PrizesLabel";
+            PrizesLabel.Size = new Size(57, 25);
+            PrizesLabel.TabIndex = 20;
+            PrizesLabel.Text = "Prizes";
             // 
             // createTournamentButton
             // 
@@ -235,9 +235,9 @@
             Controls.Add(createTournamentButton);
             Controls.Add(deleteSelectedPrizeButton);
             Controls.Add(prizesListBox);
-            Controls.Add(playersTeamPrizeLabel);
+            Controls.Add(PrizesLabel);
             Controls.Add(deleteSelectedPlayersTeamButton);
-            Controls.Add(tournamentTeamPlayersListBox);
+            Controls.Add(tournamentTeamListBox);
             Controls.Add(teamPalyersLabel);
             Controls.Add(addTeamButton);
             Controls.Add(createPrizeButton);
@@ -266,11 +266,11 @@
         private Button createPrizeButton;
         private Button addTeamButton;
         private Label teamPalyersLabel;
-        private ListBox tournamentTeamPlayersListBox;
+        private ListBox tournamentTeamListBox;
         private Button deleteSelectedPlayersTeamButton;
         private Button deleteSelectedPrizeButton;
         private ListBox prizesListBox;
-        private Label playersTeamPrizeLabel;
+        private Label PrizesLabel;
         private Button createTournamentButton;
         private Label createTournamentLabel;
     }
