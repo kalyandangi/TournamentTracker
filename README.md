@@ -60,6 +60,6 @@ Feel free to contribute to this project by submitting pull requests or reporting
 
 ## Contact
 
-For any  questions, inquiries and feedback, please contact [Send Feedback](mailto:kalyandangi@outlook.com?subject=Feedback%20on%20Tournament%20Tracker). 
+For any  questions, inquiries and feedback, please contact [here](mailto:kalyandangi@outlook.com?subject=Feedback%20on%20Tournament%20Tracker). 
 
 
