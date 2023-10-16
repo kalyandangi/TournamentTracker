@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
 
+
 namespace TrackerUI
 {
     public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
@@ -130,9 +131,12 @@ namespace TrackerUI
             tm.EntryFee = 0;
 
             tm.Prizes = selectedPrizes;
-            tm.EnteredTeams = selectedTeams;  
+            tm.EnteredTeams = selectedTeams;
 
             //TODO -- Wireup Matching
+            TournamentLogic.CreateRounds(tm);
+
+
             //Create Tournament Entry
             // Create all of the prozes entries
             // Create all of team entries

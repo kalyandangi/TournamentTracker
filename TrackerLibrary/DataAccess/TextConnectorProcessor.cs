@@ -197,7 +197,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             File.WriteAllLines(filename.FullFilePath(), lines);
         }
 
-        private static string ConvertRoundListToString(List<MatchupModel> rounds)
+        private static string ConvertRoundListToString(List<List<MatchupModel>> rounds)
         {
             //(Rounds - id^id^id| id^id^id|id^id^id)
             string output = "";
@@ -205,9 +205,9 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             {
                 return "";
             }
-            foreach (MatchupModel r in rounds)
+            foreach (List<MatchupModel> r in rounds)
             {
-                output += $"{r.Id}";
+                output += $"{ConvertMatchupListToString(r)}|";
 
             }
             output = output.Substring(0, output.Length - 1);
@@ -215,6 +215,20 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
+        public static string ConvertMatchupListToString(List<MatchupModel> matchups)
+        {
+            string output = "";
+            if(matchups.Count == 0)
+            {
+                return "";
+            }
+            foreach (MatchupModel m in matchups)
+            {
+                output += $"{m.Id}^";
+            }
+            output = output.Substring(0, output.Length-1);
+            return output;
+        }
         private static string ConvertPrizeListToString(List<PrizeModel> prizes)
         {
             string output = "";
