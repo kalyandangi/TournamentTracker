@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using TrackerLibrary.Models;
 
 
@@ -171,6 +172,40 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
 
             File.WriteAllLines(filename.FullFilePath(), lines);
+        }
+
+        public static void SaveRoundsFile(this TournamentModel model,string matchupFile, string matchupEntryFile)
+        {
+            //loop through each round
+            //loop through each matchup
+            //get the id for the new matchup and save the record
+            //loop through each Entry, get the id and save it
+            foreach (List<MatchupModel> round in model.Rounds)
+            {
+                foreach (MatchupModel matchup in round)
+                {
+                    //load all of the matchus from file
+                    //Get the top id and add one
+                    //store the id
+                    // save the matchup record
+                    matchup.SaveMatchupToFile(matchupFile, matchupEntryFile);
+                  
+
+                }
+            }
+        }
+         
+        public static void SaveMatchupToFile(this MatchupModel matchup, string matchupFile ,string matchupEntryFile)
+        {
+            foreach (MatchupEntryModel entry in matchup.Entries)
+            {
+                entry.SaveEntryToFile(matchupEntryFile);
+            }
+        }
+
+        public static void SaveEntryToFile(this MatchupEntryModel entry,string matchupEntryFile)
+        {
+
         }
 
         public static void SaveToTournamentFile(this List<TournamentModel> models, string filename)
