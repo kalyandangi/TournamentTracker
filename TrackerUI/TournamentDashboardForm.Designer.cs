@@ -90,7 +90,7 @@
             createTournamentButton.TabIndex = 30;
             createTournamentButton.Text = "Create Tournament";
             createTournamentButton.UseVisualStyleBackColor = true;
-            createTournamentButton.Click += button1_Click;
+            createTournamentButton.Click += createTournamentButton_Click;
             // 
             // TournamentDashboardForm
             // 
@@ -106,7 +106,6 @@
             Name = "TournamentDashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tournament Dashboard";
-            Load += TournamentDashboardForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

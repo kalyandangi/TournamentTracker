@@ -65,7 +65,7 @@ namespace TrackerLibrary.DataAccess
 
         public TeamModel CreateTeam(TeamModel model)
         {
-            List<TeamModel> teams = TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+            List<TeamModel> teams = TeamFile.FullFilePath().LoadFile().ConvertToTeamModels();
             int currentId = 1;
             if (teams.Count > 0)
             {
@@ -86,7 +86,7 @@ namespace TrackerLibrary.DataAccess
             List<TournamentModel> tournaments = TournamentFile
                 .FullFilePath()
                 .LoadFile() 
-                .ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
+                .ConvertToTournamentModels();
 
             int currentId = 1;
                 if (tournaments.Count > 0)
@@ -98,7 +98,7 @@ namespace TrackerLibrary.DataAccess
 
            // tournaments.SaveToTournamentFile(model, MatchupFile, MatchupEntryFile);
 
-            model.SaveRoundsToFile(MatchupFile, MatchupEntryFile);
+            model.SaveRoundsToFile();
 
             tournaments .Add(model);
 
@@ -113,7 +113,16 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeam_All()
         {
-            return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+            return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels();
+        }
+
+        public List<TournamentModel> GetTournament_All()
+        {
+            return GlobalConfig.TournamentFile
+                  .FullFilePath()
+                  .LoadFile()
+                  .ConvertToTournamentModels();
+
         }
     }
 }
