@@ -227,7 +227,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
                 me.Id = int.Parse(cols[0]);
 
-                if (cols.Length == 0 )
+                if (cols[1].Length == 0 )
                 {
                     me.TeamCompeting = null;
                 }
@@ -332,7 +332,12 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 }
                 else
                 {
-                    m.Winner = LookupTeamById(int.Parse(cols[2]));
+                    string trimmedValue = cols[2].Trim();
+
+                    if (!string.IsNullOrEmpty(trimmedValue))
+                    {
+                        m.Winner = LookupTeamById(int.Parse(trimmedValue));
+                    }
                 }
                // p.Winner = LookupTeamById(int.Parse(cols[2])); ;
                 m.MatchupRound = int.Parse(cols[3]);
