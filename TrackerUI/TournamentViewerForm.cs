@@ -82,33 +82,36 @@ namespace TrackerUI
         }
         private void LoadMatchup()
         {
-            MatchupModel m = (MatchupModel)matchupListBox.SelectedItem;
-            for(int i = 0; i< m.Entries.Count; i++)
+            if (matchupListBox.SelectedItem != null)
             {
-                if (i == 0)
+                MatchupModel m = (MatchupModel)matchupListBox.SelectedItem;
+                for (int i = 0; i < m.Entries.Count; i++)
                 {
-                    if (m.Entries[0].TeamCompeting != null)
+                    if (i == 0)
                     {
-                        teamOneNameLabel.Text = m.Entries[0].TeamCompeting.TeamName;
-                        teamOneScoreValue.Text = m.Entries[0].Score.ToString();
+                        if (m.Entries[0].TeamCompeting != null)
+                        {
+                            teamOneNameLabel.Text = m.Entries[0].TeamCompeting.TeamName;
+                            teamOneScoreValue.Text = m.Entries[0].Score.ToString();
+                        }
+                        else
+                        {
+                            teamOneNameLabel.Text = "NotYet Set";
+                            teamOneScoreValue.Text = "";
+                        }
                     }
-                    else
+                    if (i == 1)
                     {
-                        teamOneNameLabel.Text = "NotYet Set";
-                        teamOneScoreValue.Text = "";
-                    }
-                }
-                if (i == 1)
-                {
-                    if (m.Entries[0].TeamCompeting != null)
-                    {
-                        teamTwoNameLabel.Text = m.Entries[0].TeamCompeting.TeamName;
-                        teamTwoScoreValue.Text = m.Entries[0].Score.ToString();
-                    }
-                    else
-                    {
-                        teamTwoNameLabel.Text = "NotYet Set";
-                        teamTwoScoreValue.Text = "";
+                        if (m.Entries[0].TeamCompeting != null)
+                        {
+                            teamTwoNameLabel.Text = m.Entries[0].TeamCompeting.TeamName;
+                            teamTwoScoreValue.Text = m.Entries[0].Score.ToString();
+                        }
+                        else
+                        {
+                            teamTwoNameLabel.Text = "NotYet Set";
+                            teamTwoScoreValue.Text = "";
+                        }
                     }
                 }
             }

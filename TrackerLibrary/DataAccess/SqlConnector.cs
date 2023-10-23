@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -226,7 +227,7 @@ namespace TrackerLibrary.DataAccess
         {
             List<TournamentModel> output;
             var p = new DynamicParameters();
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db))) 
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db))) 
             {
                 output = connection.Query<TournamentModel>("dbo.spTournaments_GetAll").ToList();
                 
@@ -276,12 +277,12 @@ namespace TrackerLibrary.DataAccess
 
                         foreach (var me in m.Entries)
                         {
-                            if(me.TeamCompetingId>0)
+                            if(me.TeamCompetingId > 0)
                             {
                                 me.TeamCompeting = allTeams.Where(x => x.Id == me.TeamCompetingId).First(); 
                             }
 
-                            if(me.ParentMatchupId>0)
+                            if(me.ParentMatchupId > 0)
                             {
                                 me.ParentMatchup = matchups.Where(x => x.Id == me.ParentMatchupId).First();
                             }

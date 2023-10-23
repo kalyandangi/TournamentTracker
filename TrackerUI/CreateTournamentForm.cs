@@ -80,29 +80,53 @@ namespace TrackerUI
             frm.Show();
         }
 
+        //private void RemoveSelectedPlayersTeamButton_Click(object sender, EventArgs e)
+        //{
+
+        //    TeamModel t = (TeamModel)tournamentTeamListBox.SelectedItem;
+        //    if (t != null)
+        //    {
+        //        selectedTeams.Remove(t);
+        //        availableTeams.Add(t);
+        //        WireUpLists();
+
+        //    }
+        //}
+
         private void RemoveSelectedPlayersTeamButton_Click(object sender, EventArgs e)
         {
-
-            TeamModel t = (TeamModel)tournamentTeamListBox.SelectedItem;
-            if (t != null)
+            if (tournamentTeamListBox.SelectedItem != null)
             {
-                selectedTeams.Remove(t);
-                availableTeams.Add(t);
-                WireUpLists();
-
+                if (tournamentTeamListBox.SelectedItem is TeamModel t)
+                {
+                    selectedTeams.Remove(t);
+                    availableTeams.Add(t);
+                    WireUpLists();
+                }
             }
         }
 
+
+
         private void removeSelectedPrizeButton_Click(object sender, EventArgs e)
         {
-            PrizeModel p = (PrizeModel)prizesListBox.SelectedItem;
-            if (p != null)
+            //PrizeModel p = (PrizeModel)prizesListBox.SelectedItem;
+            if(prizesListBox.SelectedItem != null)
             {
-                selectedPrizes.Remove(p);
-                WireUpLists();
-
+                if(prizesListBox.SelectedItem is PrizeModel p)
+                {
+                    selectedPrizes.Remove(p);
+                    WireUpLists();
+                }
 
             }
+            //if (p != null)
+            //{
+            //    selectedPrizes.Remove(p);
+            //    WireUpLists();
+
+
+            //}
         }
 
         private void createTournamentButton_Click(object sender, EventArgs e)
