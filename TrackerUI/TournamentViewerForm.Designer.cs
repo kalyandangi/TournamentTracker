@@ -35,7 +35,7 @@
             unPlayedOnlyCheckBox = new CheckBox();
             matchupListBox = new ListBox();
             teamOneNameLabel = new Label();
-            scoreLabel = new Label();
+            teamOneScoreLabel = new Label();
             teamOneScoreValue = new TextBox();
             teamTwoScoreValue = new TextBox();
             teamTwoScoreLabel = new Label();
@@ -47,10 +47,9 @@
             // roundLabel
             // 
             roundLabel.AutoSize = true;
-            roundLabel.Location = new Point(34, 74);
-            roundLabel.Margin = new Padding(2, 0, 2, 0);
+            roundLabel.Location = new Point(49, 123);
             roundLabel.Name = "roundLabel";
-            roundLabel.Size = new Size(42, 15);
+            roundLabel.Size = new Size(64, 25);
             roundLabel.TabIndex = 0;
             roundLabel.Text = "Round";
             // 
@@ -59,10 +58,9 @@
             tournamentLabel.AutoSize = true;
             tournamentLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             tournamentLabel.ForeColor = Color.RoyalBlue;
-            tournamentLabel.Location = new Point(34, 25);
-            tournamentLabel.Margin = new Padding(2, 0, 2, 0);
+            tournamentLabel.Location = new Point(49, 42);
             tournamentLabel.Name = "tournamentLabel";
-            tournamentLabel.Size = new Size(107, 21);
+            tournamentLabel.Size = new Size(160, 32);
             tournamentLabel.TabIndex = 2;
             tournamentLabel.Text = "Tournament:";
             // 
@@ -71,109 +69,100 @@
             tournamentName.AutoSize = true;
             tournamentName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             tournamentName.ForeColor = Color.RoyalBlue;
-            tournamentName.Location = new Point(150, 25);
-            tournamentName.Margin = new Padding(2, 0, 2, 0);
+            tournamentName.Location = new Point(214, 42);
             tournamentName.Name = "tournamentName";
-            tournamentName.Size = new Size(74, 21);
+            tournamentName.Size = new Size(110, 32);
             tournamentName.TabIndex = 3;
             tournamentName.Text = "<None>";
             // 
             // roundDropDown
             // 
             roundDropDown.FormattingEnabled = true;
-            roundDropDown.Location = new Point(83, 70);
-            roundDropDown.Margin = new Padding(2);
+            roundDropDown.Location = new Point(119, 117);
             roundDropDown.Name = "roundDropDown";
-            roundDropDown.Size = new Size(129, 23);
+            roundDropDown.Size = new Size(183, 33);
             roundDropDown.TabIndex = 4;
+            roundDropDown.SelectedIndexChanged += roundDropDown_SelectedIndexChanged;
             // 
             // unPlayedOnlyCheckBox
             // 
             unPlayedOnlyCheckBox.AutoSize = true;
             unPlayedOnlyCheckBox.FlatStyle = FlatStyle.Flat;
-            unPlayedOnlyCheckBox.Location = new Point(106, 93);
-            unPlayedOnlyCheckBox.Margin = new Padding(2);
+            unPlayedOnlyCheckBox.Location = new Point(151, 155);
             unPlayedOnlyCheckBox.Name = "unPlayedOnlyCheckBox";
-            unPlayedOnlyCheckBox.Size = new Size(101, 19);
+            unPlayedOnlyCheckBox.Size = new Size(150, 29);
             unPlayedOnlyCheckBox.TabIndex = 5;
             unPlayedOnlyCheckBox.Text = "Unplayed Only";
             unPlayedOnlyCheckBox.UseVisualStyleBackColor = true;
+            unPlayedOnlyCheckBox.CheckedChanged += unPlayedOnlyCheckBox_CheckedChanged;
             // 
             // matchupListBox
             // 
             matchupListBox.BorderStyle = BorderStyle.FixedSingle;
             matchupListBox.FormattingEnabled = true;
-            matchupListBox.ItemHeight = 15;
-            matchupListBox.Location = new Point(42, 119);
-            matchupListBox.Margin = new Padding(2);
+            matchupListBox.ItemHeight = 25;
+            matchupListBox.Location = new Point(60, 198);
             matchupListBox.Name = "matchupListBox";
-            matchupListBox.Size = new Size(174, 77);
+            matchupListBox.Size = new Size(248, 127);
             matchupListBox.TabIndex = 6;
             matchupListBox.SelectedIndexChanged += matchupListBox_SelectedIndexChanged;
             // 
             // teamOneNameLabel
             // 
             teamOneNameLabel.AutoSize = true;
-            teamOneNameLabel.Location = new Point(326, 68);
-            teamOneNameLabel.Margin = new Padding(2, 0, 2, 0);
+            teamOneNameLabel.Location = new Point(466, 113);
             teamOneNameLabel.Name = "teamOneNameLabel";
-            teamOneNameLabel.Size = new Size(76, 15);
+            teamOneNameLabel.Size = new Size(115, 25);
             teamOneNameLabel.TabIndex = 7;
             teamOneNameLabel.Text = "<Team One>";
             // 
-            // scoreLabel
+            // teamOneScoreLabel
             // 
-            scoreLabel.AutoSize = true;
-            scoreLabel.Location = new Point(284, 93);
-            scoreLabel.Margin = new Padding(2, 0, 2, 0);
-            scoreLabel.Name = "scoreLabel";
-            scoreLabel.Size = new Size(36, 15);
-            scoreLabel.TabIndex = 8;
-            scoreLabel.Text = "Score";
+            teamOneScoreLabel.AutoSize = true;
+            teamOneScoreLabel.Location = new Point(406, 155);
+            teamOneScoreLabel.Name = "teamOneScoreLabel";
+            teamOneScoreLabel.Size = new Size(56, 25);
+            teamOneScoreLabel.TabIndex = 8;
+            teamOneScoreLabel.Text = "Score";
             // 
             // teamOneScoreValue
             // 
-            teamOneScoreValue.Location = new Point(323, 93);
-            teamOneScoreValue.Margin = new Padding(2);
+            teamOneScoreValue.Location = new Point(461, 155);
             teamOneScoreValue.Name = "teamOneScoreValue";
-            teamOneScoreValue.Size = new Size(106, 23);
+            teamOneScoreValue.Size = new Size(150, 31);
             teamOneScoreValue.TabIndex = 9;
             // 
             // teamTwoScoreValue
             // 
-            teamTwoScoreValue.Location = new Point(326, 176);
-            teamTwoScoreValue.Margin = new Padding(2);
+            teamTwoScoreValue.Location = new Point(466, 293);
             teamTwoScoreValue.Name = "teamTwoScoreValue";
-            teamTwoScoreValue.Size = new Size(106, 23);
+            teamTwoScoreValue.Size = new Size(150, 31);
             teamTwoScoreValue.TabIndex = 12;
             // 
             // teamTwoScoreLabel
             // 
             teamTwoScoreLabel.AutoSize = true;
-            teamTwoScoreLabel.Location = new Point(286, 176);
-            teamTwoScoreLabel.Margin = new Padding(2, 0, 2, 0);
+            teamTwoScoreLabel.Location = new Point(409, 293);
             teamTwoScoreLabel.Name = "teamTwoScoreLabel";
-            teamTwoScoreLabel.Size = new Size(36, 15);
+            teamTwoScoreLabel.Size = new Size(56, 25);
             teamTwoScoreLabel.TabIndex = 11;
             teamTwoScoreLabel.Text = "Score";
             // 
             // teamTwoNameLabel
             // 
             teamTwoNameLabel.AutoSize = true;
-            teamTwoNameLabel.Location = new Point(328, 152);
-            teamTwoNameLabel.Margin = new Padding(2, 0, 2, 0);
+            teamTwoNameLabel.Location = new Point(469, 253);
             teamTwoNameLabel.Name = "teamTwoNameLabel";
-            teamTwoNameLabel.Size = new Size(75, 15);
+            teamTwoNameLabel.Size = new Size(114, 25);
             teamTwoNameLabel.TabIndex = 10;
             teamTwoNameLabel.Text = "<Team Two>";
             // 
             // versusLabel
             // 
             versusLabel.AutoSize = true;
-            versusLabel.Location = new Point(346, 122);
-            versusLabel.Margin = new Padding(2, 0, 2, 0);
+            versusLabel.Location = new Point(494, 203);
             versusLabel.Name = "versusLabel";
-            versusLabel.Size = new Size(40, 15);
+            versusLabel.Size = new Size(61, 25);
             versusLabel.TabIndex = 13;
             versusLabel.Text = "--VS--";
             // 
@@ -184,27 +173,27 @@
             scoreButton.FlatAppearance.MouseOverBackColor = Color.White;
             scoreButton.FlatStyle = FlatStyle.Flat;
             scoreButton.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            scoreButton.Location = new Point(461, 122);
-            scoreButton.Margin = new Padding(2);
+            scoreButton.Location = new Point(659, 203);
             scoreButton.Name = "scoreButton";
-            scoreButton.Size = new Size(70, 26);
+            scoreButton.Size = new Size(100, 43);
             scoreButton.TabIndex = 14;
             scoreButton.Text = "Score";
             scoreButton.UseVisualStyleBackColor = true;
+            scoreButton.Click += scoreButton_Click;
             // 
             // TournamentViewerForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(560, 270);
+            ClientSize = new Size(800, 450);
             Controls.Add(scoreButton);
             Controls.Add(versusLabel);
             Controls.Add(teamTwoScoreValue);
             Controls.Add(teamTwoScoreLabel);
             Controls.Add(teamTwoNameLabel);
             Controls.Add(teamOneScoreValue);
-            Controls.Add(scoreLabel);
+            Controls.Add(teamOneScoreLabel);
             Controls.Add(teamOneNameLabel);
             Controls.Add(matchupListBox);
             Controls.Add(unPlayedOnlyCheckBox);
@@ -212,7 +201,6 @@
             Controls.Add(tournamentName);
             Controls.Add(tournamentLabel);
             Controls.Add(roundLabel);
-            Margin = new Padding(2);
             Name = "TournamentViewerForm";
             Text = "Tournament Viewer";
             ResumeLayout(false);
@@ -228,7 +216,7 @@
         private CheckBox unPlayedOnlyCheckBox;
         private ListBox matchupListBox;
         private Label teamOneNameLabel;
-        private Label scoreLabel;
+        private Label teamOneScoreLabel;
         private TextBox teamOneScoreValue;
         private TextBox teamTwoScoreValue;
         private Label teamTwoScoreLabel;

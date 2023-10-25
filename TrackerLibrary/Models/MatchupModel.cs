@@ -44,5 +44,14 @@ namespace TrackerLibrary.Models
             }
         }
 
+        //public static explicit operator MatchupModel(System.Windows.Forms.ListBox.SelectedObjectCollection v)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static explicit operator MatchupModel(System.Windows.Forms.ListBox.SelectedObjectCollection v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
