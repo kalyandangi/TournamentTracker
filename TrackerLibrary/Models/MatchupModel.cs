@@ -12,7 +12,7 @@ namespace TrackerLibrary.Models
         public List<MatchupEntryModel> Entries { get; set; } = new List<MatchupEntryModel>();
 
         public  int WinnerId { get; set; }
-        public TeamModel Winner { get; set; }
+        public TeamModel? Winner { get; set; }
         public int MatchupRound { get; set; }
 
         public string DisplayName
@@ -43,15 +43,5 @@ namespace TrackerLibrary.Models
                 return output;
             }
         }
-
-        //public static explicit operator MatchupModel(System.Windows.Forms.ListBox.SelectedObjectCollection v)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public static explicit operator MatchupModel(System.Windows.Forms.ListBox.SelectedObjectCollection v)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

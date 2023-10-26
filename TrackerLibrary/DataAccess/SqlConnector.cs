@@ -14,7 +14,7 @@ namespace TrackerLibrary.DataAccess
 
     {
         private const string db = "Tournaments";
-        public PersonModel CreatePerson(PersonModel model)
+        public void CreatePerson(PersonModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
@@ -29,7 +29,6 @@ namespace TrackerLibrary.DataAccess
 
                 model.Id = p.Get<int>("id");
 
-                return model;
             }
         }
 
@@ -39,7 +38,7 @@ namespace TrackerLibrary.DataAccess
         /// </summary>
         /// <param name="model"> the prize information</param>
         /// <returns> the prize information, including Unquie indentifier </returns>
-        public PrizeModel CreatePrize(PrizeModel model)
+        public void CreatePrize(PrizeModel model)
         {
           //      @PlaceNumber int,
           //      @PlaceName nvarchar(50),
@@ -58,12 +57,10 @@ namespace TrackerLibrary.DataAccess
                 connection.Execute("dbo.spPrizes_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
-
-                return model;
             }
         }
 
-        public TeamModel CreateTeam(TeamModel model)
+        public void CreateTeam(TeamModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection (GlobalConfig.CnnString(db)))
             {
@@ -87,9 +84,6 @@ namespace TrackerLibrary.DataAccess
 
                 }
 
-
-                return model;
-
             }
         }
 
@@ -100,9 +94,9 @@ namespace TrackerLibrary.DataAccess
                 SaveTournament(connection, model);
                 SaveTournamentPrizes(connection, model);
                 SaveTournamentEntries(connection, model);
-
                 SaveTournamentRounds(connection, model);
-                
+                TournamentLogic.UpdateTournamentResults(model);
+
             }
         }
         private void SaveTournament(IDbConnection connection, TournamentModel model)
@@ -150,7 +144,6 @@ namespace TrackerLibrary.DataAccess
         {
             //List<List<MatchupModel> Rounds
             //List<MatchupEntryModel> Entries
-
             //Loop throgh the rounds
             //Lioop through the matchups
             //Save the matchup
@@ -319,7 +312,8 @@ namespace TrackerLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@id", model.Id);
-                p.Add("@WinnerId", model.Winner.Id);
+                
+                p.Add("@WinnerId", model.Winner?.Id);
 
                 connection.Execute("dbo.spMatchups_Update", p, commandType: CommandType.StoredProcedure);
 
@@ -329,7 +323,7 @@ namespace TrackerLibrary.DataAccess
                 {
                     p = new DynamicParameters();
                     p.Add("@id", me.Id);
-                    p.Add("@TeamCompetingId", me.TeamCompeting.Id);
+                    p.Add("@TeamCompetingId", me.TeamCompeting?.Id);
                     p.Add("@Score", me.Score);
 
                     connection.Execute("spMatchupEntries_Update", p, commandType: CommandType.StoredProcedure);

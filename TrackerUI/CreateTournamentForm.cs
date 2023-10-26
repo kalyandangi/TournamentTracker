@@ -80,19 +80,6 @@ namespace TrackerUI
             frm.Show();
         }
 
-        //private void RemoveSelectedPlayersTeamButton_Click(object sender, EventArgs e)
-        //{
-
-        //    TeamModel t = (TeamModel)tournamentTeamListBox.SelectedItem;
-        //    if (t != null)
-        //    {
-        //        selectedTeams.Remove(t);
-        //        availableTeams.Add(t);
-        //        WireUpLists();
-
-        //    }
-        //}
-
         private void RemoveSelectedPlayersTeamButton_Click(object sender, EventArgs e)
         {
             if (tournamentTeamListBox.SelectedItem != null)
@@ -120,13 +107,6 @@ namespace TrackerUI
                 }
 
             }
-            //if (p != null)
-            //{
-            //    selectedPrizes.Remove(p);
-            //    WireUpLists();
-
-
-            //}
         }
 
         private void createTournamentButton_Click(object sender, EventArgs e)
@@ -138,13 +118,12 @@ namespace TrackerUI
 
             if (!feeAcceptable)
             {
-                //MessageBox.Show("You nee to enter a valid Entry fee", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show("You need to enter a valid Entry fee",
-                    "Invalid Fee", 
+                    "Invalid Fee",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
-                return; 
+                return;
 
             }
 
@@ -152,10 +131,10 @@ namespace TrackerUI
             TournamentModel tm = new TournamentModel();
 
             tm.TournamentName = tournamentNameValue.Text;
-            tm.EntryFee = 0;
-
+            tm.EntryFee = fee;
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
+            
 
             //TODO -- Wireup Matching
             TournamentLogic.CreateRounds(tm);
@@ -165,6 +144,11 @@ namespace TrackerUI
             // Create all of the prozes entries
             // Create all of team entries
             GlobalConfig.Connection.CreateTournament(tm);
+            
+
+            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            frm.Show();
+            this.Close();
 
             
         }
