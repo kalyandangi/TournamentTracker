@@ -16,22 +16,22 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// The First name of the person
         /// </summary>
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         /// <summary>
         /// The last name of the person
         /// </summary>
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         /// <summary>
         /// The primary email address of the person
         /// </summary>
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
         /// <summary>
         /// The primary phone of the person
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         public string FullName 
         { 
