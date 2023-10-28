@@ -372,31 +372,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
             File.WriteAllLines(GlobalConfig.MatchupFile.FullFilePath(), lines);
         }
-        //public static void UpdateMatchupToFile(this MatchupModel matchup)
-        //{
-        //    List<MatchupModel> matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
-        //    bool foundOldMatchup = false;
-        //    MatchupModel oldMatchup = new MatchupModel();
-
-        //    for (int i = 0; i < matchups.Count; i++)
-        //    {
-        //        if (matchups[i].Id == matchup.Id)
-        //        {
-        //            oldMatchup = matchups[i];
-        //            foundOldMatchup = true;
-        //            matchups[i] = matchup; // Update the current item
-        //            break; // Exit the loop once a match is found
-        //        }
-        //    }
-
-        //    if (foundOldMatchup)
-        //    {
-        //        foreach (MatchupEntryModel entry in oldMatchup.Entries)
-        //        {
-        //            entry.UpdateEntryToFile();
-        //        }
-        //    }
-        //}
+        
         public static void UpdateMatchupToFile(this MatchupModel matchup)
         {
             List<MatchupModel> matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
